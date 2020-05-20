@@ -10,18 +10,14 @@
 // define game object
 let config = {
     parent: 'phaser-game',
-    type: Phaser.AUTO,
+    type: Phaser.CANVAS,
+    pixelArt: true,
     width: 800,
     height: 600,
-    scene: [ BasicTween ]
+    scene: [ SonicTitle, BasicTween, AllEases ]
 }
 
 const game = new Phaser.Game(config);
 
-// some globals
-const centerX = game.config.width / 2;
-const centerY = game.config.height / 2;
-const w = game.config.width;
-const h = game.config.height;
-
+// global
 let cursors = null;
