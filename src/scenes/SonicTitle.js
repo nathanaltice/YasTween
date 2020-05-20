@@ -19,7 +19,7 @@ class SonicTitle extends Phaser.Scene {
         const h = this.cameras.main.height;
 
         // add instruction text
-        this.add.bitmapText(centerX, centerY, 'gem_font', 'Click to go fast', 16).setOrigin(0.5);
+        let instructText = this.add.bitmapText(centerX, centerY, 'gem_font', 'Click to go fast', 16).setOrigin(0.5);
 
         // generate textures from graphics primitives: .generateTexture(key [, width] [, height])
         // blue rectangle
@@ -57,6 +57,12 @@ class SonicTitle extends Phaser.Scene {
             repeat: 0,
             yoyo: true,
             hold: 1800,
+            onYoyo: function() {
+                // launch next scene
+                this.scene.launch('basictweenScene');
+                this.scene.moveDown('basictweenScene');
+            },
+            onYoyoScope: this,  // maintain scene context
             paused: true
         });
 
@@ -105,7 +111,11 @@ class SonicTitle extends Phaser.Scene {
             repeat: 0,
             yoyo: true,
             hold: 2500,
-            paused: true
+            paused: true,
+            onComplete: function() {
+                this.scene.stop('sonictitleScene');
+            },
+            onCompleteScope: this   // maintain scene context
         });
 
         let middleTextTween = this.tweens.add({
@@ -122,17 +132,25 @@ class SonicTitle extends Phaser.Scene {
 
         // add mouse input listener to start animation
         this.input.on('pointerdown', () => {
+            // kill instruct text
+            instructText.destroy();
+            // start all tweens
             blueTween.play();
             yellowTween.play();
             bottomTextTween.play();
             redTween.play();
             topTextTween.play();
             middleTextTween.play();
+            // remove listener to prevent click spamming animation
+            this.input.off('pointerdown');
         });
 
         // enable scene switcher / reload keys
         this.swap = this.input.keyboard.addKey('S');
         this.reload = this.input.keyboard.addKey('R');
+
+        // update instruction text
+        document.getElementById('info').innerHTML = '<strong>SonicTitle.js:</strong> See above, chief 👆';
     }
 
     update() {

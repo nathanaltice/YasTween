@@ -102,7 +102,20 @@ class AllEases extends Phaser.Scene {
             console.log(this.tweens);
         });
 
+        // enable scene switcher / reload keys
+        this.swap = this.input.keyboard.addKey('S');
+        this.reload = this.input.keyboard.addKey('R');
+
         // update instruction text
         document.getElementById('info').innerHTML = '<strong>AllEases.js:</strong> Click to pause all tweens';
+    }
+    update() {
+        // scene switching / restart
+        if(Phaser.Input.Keyboard.JustDown(this.reload)) {
+            this.scene.restart();
+        }
+        if(Phaser.Input.Keyboard.JustDown(this.swap)) {
+            this.scene.start("sonictitleScene");
+        }
     }
 }

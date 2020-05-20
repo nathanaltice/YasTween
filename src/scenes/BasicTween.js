@@ -10,8 +10,10 @@ class BasicTween extends Phaser.Scene {
     }
 
     create() {
+        // do camera stuff
         const centerX = this.cameras.main.centerX;
         const centerY = this.cameras.main.centerY;
+        this.cameras.main.setBackgroundColor(0x444444);
 
         // add sprites
         this.tomato = this.add.sprite(centerX, centerY, 'fruitandveg', 'tomato').setScale(3);
@@ -21,7 +23,7 @@ class BasicTween extends Phaser.Scene {
             targets: this.tomato,
             alpha: { from: 0, to: 1 },
             ease: 'Linear',
-            duration: 1000,
+            duration: 3000,
             repeat: 0,
             yoyo: false
         });
@@ -29,6 +31,9 @@ class BasicTween extends Phaser.Scene {
         // enable scene switcher / reload keys
         this.swap = this.input.keyboard.addKey('S');
         this.reload = this.input.keyboard.addKey('R');
+
+        // update instruction text
+        document.getElementById('info').innerHTML = '<strong>BasicTween.js:</strong> [...]';
     }
 
     update() {
