@@ -3,13 +3,6 @@ class SonicTitle extends Phaser.Scene {
         super('sonictitleScene');
     }
 
-    preload() {
-        // load assets
-        this.load.path = './assets/';
-        this.load.atlas('fruitandveg', 'img/fruitandveg.png', 'img/fruitandveg.json');
-        this.load.bitmapFont('gem_font', 'font/gem.png', 'font/gem.xml');
-    }
-
     create() {
         // resize game 
         game.scale.resize(800, 600);
@@ -59,8 +52,8 @@ class SonicTitle extends Phaser.Scene {
             hold: 1800,
             onYoyo: function() {
                 // launch next scene
-                this.scene.launch('basictweenScene');
-                this.scene.moveDown('basictweenScene');
+                this.scene.launch('basicsScene');
+                this.scene.moveDown('basicsScene');
             },
             onYoyoScope: this,  // maintain scene context
             paused: true

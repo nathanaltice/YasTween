@@ -1,8 +1,8 @@
 // Nathan Altice
 // Created: 5/19/20
-// Updated: 5/19/20
+// Updated: 5/21/20
 // Tweens
-// Phaser 3 Tween demos
+// Phaser 3 Tween examples demonstrating tweens, timelines, callbacks, easing equations, and number counters
 
 // CODE ARMOR
 'use strict';
@@ -14,7 +14,7 @@ let config = {
     pixelArt: true,
     width: 800,
     height: 600,
-    scene: [ SonicTitle, BasicTween, AllEases ]
+    scene: [ Basics, Counter, AllEases, SonicTitle ]
 }
 
 const game = new Phaser.Game(config);

@@ -9,7 +9,6 @@ class AllEases extends Phaser.Scene {
         // load assets
         this.load.path = './assets/';
         this.load.image('5x5', 'img/5x5_white.png');
-        this.load.bitmapFont('gem_font', 'font/gem.png', 'font/gem.xml');
     }
 
     create() {
