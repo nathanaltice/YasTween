@@ -32,9 +32,10 @@ class Basics extends Phaser.Scene {
             scale: { from: 0.1, to: 18 },
             angle: { from: 0, to: 360 },
             ease: 'Sine.easeInOut',
-            duration: 3000,
-            repeat: 0,
-            yoyo: false,
+            duration: 2000,
+            repeat: 1,
+            yoyo: true,
+            hold: 1000,
             onComplete: function() {
                 this.instructionText.text = 'Click to tween that Very Good Pear©';
             },

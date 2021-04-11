@@ -152,7 +152,7 @@ class SonicTitle extends Phaser.Scene {
             this.scene.restart();
         }
         if(Phaser.Input.Keyboard.JustDown(this.swap)) {
-            //this.scene.start("alleasesScene");
+            //this.scene.start("");
         }
     }
 }
