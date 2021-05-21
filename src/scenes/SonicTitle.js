@@ -6,6 +6,7 @@ class SonicTitle extends Phaser.Scene {
     create() {
         // resize game 
         game.scale.resize(800, 600);
+        // define some dimensions
         const centerX = this.cameras.main.centerX;
         const centerY = this.cameras.main.centerY;
         const w = this.cameras.main.width;
@@ -49,11 +50,11 @@ class SonicTitle extends Phaser.Scene {
             duration: 250,
             repeat: 0,
             yoyo: true,
-            hold: 1800,
+            hold: 1800, // the number of ms to hold the tween before yoyo'ing 🚦🪀
             onYoyo: function() {
                 // launch next scene
-                this.scene.launch('basicsScene');
-                this.scene.moveDown('basicsScene');
+                this.scene.launch('basicsScene');   // launch next scene to run concurrently
+                this.scene.moveDown('basicsScene'); // move next scene down so it sits "below" this scene
             },
             onYoyoScope: this,  // maintain scene context
             paused: true
