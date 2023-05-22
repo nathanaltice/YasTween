@@ -1,11 +1,11 @@
 // Nathan Altice
 // Created: 5/19/20
-// Updated: 5/21/21
+// Updated: 5/22/23 (Phaser 3.60)
 // Tweens
-// Phaser 3 Tween examples demonstrating tweens, timelines, callbacks, easing equations, and number counters
+// Phaser 3 Tween examples demonstrating tweens, chains, callbacks, easing equations, and number counters
 
 // CODE ARMOR
-'use strict';
+'use strict'
 
 // define game object
 let config = {
@@ -17,7 +17,7 @@ let config = {
     scene: [ Basics, Counter, AllEases, SonicTitle ]
 }
 
-const game = new Phaser.Game(config);
+const game = new Phaser.Game(config)
 
 // global
-let cursors = null;
+let cursors = null
