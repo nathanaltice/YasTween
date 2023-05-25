@@ -48,7 +48,7 @@ class Basics extends Phaser.Scene {
             onComplete: () => {
                 this.instructionText.text = 'Tomato tween complete!'
             }
-        });
+        })
 
         // create timeline
         let pearTweenChain = this.tweens.chain({
@@ -96,7 +96,7 @@ class Basics extends Phaser.Scene {
             this.scene.restart()
         }
         if(Phaser.Input.Keyboard.JustDown(this.swap)) {
-            this.scene.start("counterScene")
+            this.scene.start("alleasesScene")
         }
     }
 }
