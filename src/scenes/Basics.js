@@ -56,30 +56,31 @@ class Basics extends Phaser.Scene {
             ease: 'Bounce.easeOut',
             loop: 1,    
             paused: true,
-            tweens: [{
-                x: w - 64,
-                duration: 500
-            },
-            {
-                y: h - 64,
-                duration: 1000,
-                ease: 'Sine.easeOut'    // note that this will supersede the timeline ease above
-            },
-            {
-                x: 64,
-                duration: 1500
-            },
-            {
-                y: 64,
-                duration: 1000
-            }]
+            tweens: [
+                {
+                    x: w - 64,
+                    duration: 500
+                },
+                {
+                    y: h - 64,
+                    duration: 1000,
+                    ease: 'Sine.easeOut'    // note that this will supersede the timeline ease above
+                },
+                {
+                    x: 64,
+                    duration: 1500
+                },
+                {
+                    y: 64,
+                    duration: 1000
+                }
+            ]
         })
 
         // add mouse input listener to start timeline
         this.input.on('pointerdown', () => {
-            if(!pearTweenChain.isPlaying()) {
-                pearTweenChain.play()
-            }
+            verygoodpear.setPosition(64, 64)
+            pearTweenChain.restart()
         })
 
         // enable scene switcher / reload keys
