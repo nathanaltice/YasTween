@@ -53,8 +53,8 @@ class SonicTitle extends Phaser.Scene {
             hold: 1800, // the number of ms to hold the tween before yoyo'ing 🚦🪀
             onYoyo: () => {
                 // launch next scene
-                this.scene.launch('basicsScene')   // launch next scene to run concurrently
-                this.scene.moveDown('basicsScene') // move next scene down so it sits "below" this scene
+                this.scene.launch('playSonicscene')   // launch next scene to run concurrently
+                this.scene.moveDown('playSonicscene') // move next scene down so it sits "below" this scene
             },
             paused: true
         })
@@ -127,6 +127,7 @@ class SonicTitle extends Phaser.Scene {
         this.input.on('pointerdown', () => {
             // kill instruct text
             instructText.destroy()
+            
             // start all tweens
             blueTween.play()
             yellowTween.play()
@@ -134,6 +135,7 @@ class SonicTitle extends Phaser.Scene {
             redTween.play()
             topTextTween.play()
             middleTextTween.play()
+            
             // remove listener to prevent click spamming animation
             this.input.off('pointerdown')
         })
@@ -143,7 +145,7 @@ class SonicTitle extends Phaser.Scene {
         this.reload = this.input.keyboard.addKey('R')
 
         // update instruction text
-        document.getElementById('info').innerHTML = '<strong>SonicTitle.js:</strong> See above, chief 👆'
+        document.getElementById('info').innerHTML = '<strong>SonicTitle.js:</strong> Follow the instructions above 👆'
     }
 
     update() {

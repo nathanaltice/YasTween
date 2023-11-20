@@ -14,7 +14,7 @@ let config = {
     pixelArt: true,
     width: 800,
     height: 600,
-    scene: [ Basics, AllEases, SonicTitle ]
+    scene: [ Basics, AllEases, SonicTitle, PlaySonic ]
 }
 
 const game = new Phaser.Game(config)
