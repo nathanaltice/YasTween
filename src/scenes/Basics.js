@@ -27,7 +27,10 @@ class Basics extends Phaser.Scene {
         // add tween
         let basicTween = this.tweens.add({
             targets: tomato,
-            alpha: { from: 0, to: 1 },
+            alpha: { 
+                from: 0, 
+                to: 1 
+            },
             scale: { from: 0.1, to: 18 },
             angle: { from: 0, to: 360 },
             ease: 'Sine.easeInOut',

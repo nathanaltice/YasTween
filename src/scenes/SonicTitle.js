@@ -6,6 +6,7 @@ class SonicTitle extends Phaser.Scene {
     create() {
         // resize game 
         game.scale.resize(800, 600)
+        
         // define some dimensions
         const centerX = this.cameras.main.centerX
         const centerY = this.cameras.main.centerY
